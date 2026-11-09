@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f2ea">
+<title>Adjectives B1 · Nauč sa a otestuj</title>
+<meta name="description" content="Prídavné mená v angličtine (B1): teória, príklady a interaktívny test.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f2ea; --card:#fffdf8; --ink:#1c1a17; --muted:#6d675e; --line:#e6dfd2;
+  --accent:#2b59c3; --accent-ink:#fff; --accent-soft:#e3eafb;
+  --mark:#ffe066; --ok:#1d8a4e; --ok-soft:#e1f4e8; --bad:#c8402f; --bad-soft:#fbe6e2;
+  --radius:16px; --shadow:0 1px 0 rgba(0,0,0,.04),0 6px 20px -12px rgba(40,30,10,.25);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#16150f;--card:#211f19;--ink:#f1ece2;--muted:#a59e91;--line:#353128;
+  --accent:#7c9cff;--accent-ink:#0e1430;--accent-soft:#252c44;--mark:#6b5a12;
+  --ok:#5bd08f;--ok-soft:#1b3326;--bad:#ff8a78;--bad-soft:#3d221d;}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom)}
+h1,h2,h3{font-family:"Bricolage Grotesque",Inter,system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:var(--accent)}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:680px;margin:0 auto;padding:16px 16px 40px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 14px}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;text-decoration:none;color:var(--ink);letter-spacing:-.02em}
+.brand span{background:var(--mark);padding:0 6px;border-radius:6px}
+.pill{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--card)}
+.hero{padding:18px 0 8px}
+.hero h1{font-size:clamp(30px,8vw,44px);font-weight:800;letter-spacing:-.03em}
+.hero h1 mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit;padding:0 2px}
+.hero p{color:var(--muted);margin:10px 0 0;max-width:46ch}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 6px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px;font-size:12.5px;line-height:1.3;color:var(--muted)}
+.step b{display:block;color:var(--ink);font-size:18px;font-family:"Bricolage Grotesque",sans-serif}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);font-weight:600;text-decoration:none;color:var(--ink);text-align:center;line-height:1.2}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.full{width:100%}
+.btn small{display:block;font-weight:500;opacity:.8;font-size:12px}
+.sec-title{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-family:Inter,sans-serif;font-weight:600}
+.topics{display:grid;gap:10px}
+.topic{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
+.topic-head{display:flex;gap:12px;align-items:flex-start}
+.num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;font-family:"Bricolage Grotesque",sans-serif}
+.topic h3{font-size:18px}
+.topic p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin:12px 0 10px}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:6px;transition:width .4s}
+.meta{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-top:-4px;margin-bottom:10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row2 .btn{min-height:44px;font-size:15px}
+
+/* Lesson */
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:15px;padding:6px 0}
+.lesson h1{font-size:clamp(28px,7vw,38px);font-weight:800;letter-spacing:-.02em;margin:8px 0 2px}
+.lesson .sk{color:var(--muted);margin:0 0 16px}
+.lesson h3{font-size:19px;margin:26px 0 10px}
+.lesson p{margin:0 0 12px}
+.lesson mark,.content mark{background:var(--mark);color:inherit;padding:0 3px;border-radius:4px}
+.lead{font-size:17px}
+.ex{background:var(--card);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:12px 14px;margin:12px 0;font-size:16px}
+.ex div+div{margin-top:4px}
+.ex .t{color:var(--muted);font-size:14px}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px -16px;padding:0 16px}
+table{border-collapse:collapse;width:100%;min-width:440px;background:var(--card);border-radius:12px;overflow:hidden;font-size:14.5px;border:1px solid var(--line)}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+.tip{background:var(--bad-soft);border-radius:12px;padding:12px 14px;margin:12px 0}
+.tip b:first-child{color:var(--bad)}
+.tip ul,.cheat ul{margin:6px 0 0;padding-left:20px}
+.tip li,.cheat li{margin:4px 0}
+.cheat{background:var(--accent-soft);border-radius:var(--radius);padding:14px 16px;margin:24px 0 8px}
+.cheat h3{margin:0 0 4px!important;font-size:17px!important}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:14px}
+.sticky{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 30%)}
+
+/* Quiz */
+.qtop{display:flex;align-items:center;gap:12px;padding:4px 0 12px}
+.x{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:20px;line-height:1;flex:none}
+.qbar{flex:1;height:10px;background:var(--line);border-radius:10px;overflow:hidden}
+.qbar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.qcount{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.qtag{display:inline-block;font-size:12px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:3px 10px;font-weight:600;margin-bottom:10px}
+.qtask{font-size:14px;color:var(--muted);margin-bottom:6px}
+.qtext{font-size:21px;line-height:1.5;font-weight:500;margin-bottom:16px}
+.blank{display:inline-block;min-width:70px;border-bottom:2px solid var(--muted);height:1.1em;vertical-align:baseline}
+.qtext input{font:inherit;font-size:19px;width:9.5em;max-width:100%;padding:3px 8px;border:2px solid var(--accent);border-radius:10px;background:var(--bg);color:var(--ink);outline:none}
+.qtext input.ok{border-color:var(--ok);background:var(--ok-soft)}
+.qtext input.bad{border-color:var(--bad);background:var(--bad-soft)}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;padding:14px 16px;min-height:52px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);font-size:17px;display:flex;align-items:center;gap:12px}
+.opt .k{flex:none;width:26px;height:26px;border-radius:8px;border:1.5px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--muted);font-weight:600}
+.opt:not(:disabled):active{transform:scale(.99)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft)}
+.opt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.drop{display:inline-flex;flex-wrap:wrap;gap:6px;min-height:44px;min-width:140px;padding:5px;border:2px dashed var(--accent);border-radius:12px;vertical-align:middle;background:var(--bg)}
+.drop.ok{border-color:var(--ok);border-style:solid;background:var(--ok-soft)}
+.drop.bad{border-color:var(--bad);border-style:solid;background:var(--bad-soft)}
+.pool{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px;min-height:46px}
+.word{padding:8px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);font-size:17px;font-weight:500}
+.drop .word{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);padding:5px 11px}
+.fb{margin-top:14px;border-radius:14px;padding:14px 16px;animation:pop .25s ease}
+.fb.ok{background:var(--ok-soft)} .fb.bad{background:var(--bad-soft)}
+.fb h4{margin:0 0 4px;font-size:17px}
+.fb.ok h4{color:var(--ok)} .fb.bad h4{color:var(--bad)}
+.fb p{margin:4px 0 0;font-size:15px}
+.fb .ans{font-weight:600}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;font-size:14.5px;margin-top:8px}
+.actions{margin-top:16px}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Results */
+.score{text-align:center;padding:22px 0 10px}
+.ring{width:150px;height:150px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--line) 0)}
+.ring div{width:118px;height:118px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:38px}
+.score h2{font-size:26px}
+.score p{color:var(--muted);margin:6px 0 0}
+.list{display:grid;gap:8px;margin:10px 0 20px}
+.li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px}
+.li .q{font-weight:500}
+.li .y{color:var(--bad);font-size:14px}
+.li .c{color:var(--ok);font-size:14px;font-weight:600}
+.brk{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brk a{font-size:14px}
+.stack{display:grid;gap:10px}
+
+/* Sheet */
+.sheet{position:fixed;inset:0;background:rgba(10,8,4,.45);display:flex;align-items:flex-end;justify-content:center;z-index:50;animation:fade .2s}
+.sheet .in{background:var(--bg);width:100%;max-width:680px;max-height:88vh;overflow:auto;border-radius:22px 22px 0 0;padding:8px 16px calc(24px + env(safe-area-inset-bottom));animation:up .25s ease}
+.sheet .grab{position:sticky;top:0;background:var(--bg);display:flex;justify-content:flex-end;padding:8px 0;z-index:1}
+@keyframes fade{from{opacity:0}} @keyframes up{from{transform:translateY(40px)}}
+.foot{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+@media (max-width:420px){.steps{grid-template-columns:repeat(2,1fr)}.cta{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div id="sheet"></div>
+
+<script>
+/* =========================================================
+   DATA: témy, teória a otázky
+   Typy otázok: mc = výber, in = doplň, ord = zoraď slová
+   ========================================================= */
+const TOPICS = [
+{
+ id:"comp", title:"Comparatives & Superlatives", sk:"2. a 3. stupeň prídavných mien",
+ lesson:`
+<p class="lead">Keď <b>porovnávame dve veci</b>, použijeme <b>2. stupeň</b> (comparative) + <mark>than</mark>. Keď je niečo <b>naj-</b> v skupine, použijeme <b>3. stupeň</b> (superlative) a pred ním <mark>the</mark>.</p>
+<div class="ex"><div>Peter is <mark>taller than</mark> Tom.</div><div class="t">Peter je vyšší ako Tom.</div><div>Peter is <mark>the tallest</mark> in the class.</div><div class="t">Peter je najvyšší v triede.</div></div>
+<h3>Ako vytvoriť stupne</h3>
+<div class="tblwrap"><table>
+<tr><th>Pravidlo</th><th>1. stupeň</th><th>2. stupeň</th><th>3. stupeň</th></tr>
+<tr><td>1 slabika → <b>-er / -est</b></td><td>tall, cheap</td><td>taller, cheaper</td><td>the tallest, the cheapest</td></tr>
+<tr><td>končí na <b>-e</b> → len <b>-r / -st</b></td><td>large, nice</td><td>larger, nicer</td><td>the largest, the nicest</td></tr>
+<tr><td>krátka samohláska + spoluhláska → <b>zdvoj</b></td><td>big, hot, thin</td><td>bigger, hotter</td><td>the biggest, the hottest</td></tr>
+<tr><td>končí na <b>-y</b> → <b>-ier / -iest</b></td><td>happy, easy, funny</td><td>happier, easier</td><td>the happiest, the easiest</td></tr>
+<tr><td>2+ slabiky → <b>more / most</b></td><td>beautiful, expensive</td><td>more beautiful</td><td>the most beautiful</td></tr>
+</table></div>
+<h3>Nepravidelné – nauč sa naspamäť</h3>
+<div class="tblwrap"><table>
+<tr><th>1. stupeň</th><th>2. stupeň</th><th>3. stupeň</th></tr>
+<tr><td><b>good</b> (dobrý)</td><td>better</td><td>the best</td></tr>
+<tr><td><b>bad</b> (zlý)</td><td>worse</td><td>the worst</td></tr>
+<tr><td><b>far</b> (ďaleký)</td><td>farther / further</td><td>the farthest / furthest</td></tr>
+<tr><td><b>little</b> (málo)</td><td>less</td><td>the least</td></tr>
+<tr><td><b>much / many</b> (veľa)</td><td>more</td><td>the most</td></tr>
+</table></div>
+<h3>Ako porovnanie zosilniť alebo zoslabiť</h3>
+<div class="ex"><div><mark>much / a lot / far</mark> bigger = oveľa väčší</div><div><mark>a bit / a little / slightly</mark> bigger = trochu väčší</div><div><mark>less</mark> expensive = menej drahý · <mark>the least</mark> expensive = najmenej drahý</div></div>
+<div class="tip"><b>Pozor na typické chyby</b><ul>
+<li><s>more taller</s> → <b>taller</b>. Buď <b>-er</b>, alebo <b>more</b>, nikdy oboje.</li>
+<li><b>than</b> (ako) ≠ <b>then</b> (potom).</li>
+<li><s>very bigger</s> → <b>much bigger</b>.</li>
+<li>Miesto / skupina → <b>in</b>: the best <b>in</b> the world, <b>in</b> my class. Obdobie / „zo všetkých“ → <b>of</b>: the best day <b>of</b> my life, the best <b>of</b> all.</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák</h3><ul>
+<li>krátke: <b>-er than</b> / <b>the -est</b></li>
+<li>dlhé: <b>more … than</b> / <b>the most …</b></li>
+<li>good–better–best, bad–worse–worst, far–further–furthest</li>
+</ul></div>`,
+ qs:[
+  {t:"in", q:"My brother is ___ than me. (old)", a:["older"], e:"Jednoslabičné prídavné meno → pridáme -er: old → older."},
+  {t:"in", q:"This is ___ book I have ever read. (interesting)", a:["the most interesting"], e:"Dlhé prídavné meno v 3. stupni: the most + interesting. Nezabudni na „the“."},
+  {t:"mc", q:"Today is ___ than yesterday.", o:["hotter","hoter","more hot","the hottest"], a:0, e:"hot = krátka samohláska + spoluhláska → zdvojíme t: hotter."},
+  {t:"in", q:"My test results were ___ than I expected. (bad)", a:["worse"], e:"bad je nepravidelné: bad → worse → the worst."},
+  {t:"mc", q:"Mount Everest is the highest mountain ___ the world.", o:["in","of","than","at"], a:0, e:"Pri mieste alebo skupine po 3. stupni používame „in“: the highest in the world."},
+  {t:"in", q:"She's the ___ person in our class. (funny)", a:["funniest"], e:"Koncovka -y sa mení na -i: funny → funnier → the funniest."},
+  {t:"mc", q:"This phone is ___ more expensive than that one.", o:["much","very","more","most"], a:0, e:"2. stupeň zosilníme slovom much / a lot / far. Nie „very“."},
+  {t:"in", q:"It was the ___ day of my life! (good)", a:["best"], e:"good → better → the best. „of my life“ = obdobie, preto „of“."},
+  {t:"mc", q:"Which sentence is correct?", o:["He is taller than me.","He is more taller than me.","He is taller then me.","He is the taller than me."], a:0, e:"Buď -er, alebo more (nie oboje). Porovnávame slovom „than“, nie „then“."},
+  {t:"in", q:"Walking is ___ than driving. (healthy)", a:["healthier"], e:"healthy končí na -y → healthier."},
+  {t:"mc", q:"I have ___ free time than last year.", o:["less","littler","lesser","the least"], a:0, e:"little → less → the least. „less“ = menej."},
+  {t:"in", q:"Russia is the ___ country in the world. (big)", a:["biggest"], e:"big → zdvojíme g: bigger, the biggest."}
+ ]
+},
+{
+ id:"asas", title:"as … as & other comparisons", sk:"Rovnako ako, podobný, čoraz…",
+ lesson:`
+<p class="lead">Keď sú dve veci <b>rovnaké</b>, použijeme <mark>as + prídavné meno + as</mark>. Keď nie sú, dáme pred to <mark>not</mark>.</p>
+<div class="ex"><div>Tom is <mark>as tall as</mark> Peter.</div><div class="t">Tom je rovnako vysoký ako Peter.</div><div>Bratislava <mark>isn't as big as</mark> Prague.</div><div class="t">Bratislava nie je taká veľká ako Praha. (= Prague is bigger.)</div></div>
+<p>Medzi <b>as … as</b> je vždy <b>1. stupeň</b> (základný tvar): <s>as taller as</s> → <b>as tall as</b>. V zápore môžeš použiť aj <b>not so … as</b>.</p>
+<h3>Rovnaký, podobný, iný</h3>
+<div class="tblwrap"><table>
+<tr><th>Výraz</th><th>Význam</th><th>Príklad</th></tr>
+<tr><td><b>the same as</b></td><td>rovnaký ako</td><td>Her bag is the same as mine.</td></tr>
+<tr><td><b>similar to</b></td><td>podobný</td><td>My phone is similar to yours.</td></tr>
+<tr><td><b>different from</b></td><td>iný ako</td><td>Summer is different from winter.</td></tr>
+<tr><td><b>twice as … as</b></td><td>dvakrát taký</td><td>My room is twice as big as yours.</td></tr>
+</table></div>
+<h3>„Čoraz …“ a „Čím …, tým …“</h3>
+<div class="ex"><div>It's getting <mark>colder and colder</mark>.</div><div class="t">Je čoraz chladnejšie.</div><div>Prices are <mark>more and more expensive</mark>.</div><div class="t">Ceny sú čoraz vyššie.</div></div>
+<div class="ex"><div><mark>The more</mark> you practise, <mark>the better</mark> you get.</div><div class="t">Čím viac cvičíš, tým si lepší.</div><div><mark>The sooner, the better.</mark></div><div class="t">Čím skôr, tým lepšie.</div></div>
+<div class="tip"><b>Pozor</b><ul>
+<li><s>expensiver and expensiver</s> → <b>more and more expensive</b>.</li>
+<li><s>similar with</s> → <b>similar to</b>; <s>the same like</s> → <b>the same as</b>.</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák</h3><ul>
+<li><b>as … as</b> = rovnako · <b>not as … as</b> = menej</li>
+<li><b>the same as</b>, <b>similar to</b>, <b>different from</b></li>
+<li><b>-er and -er</b> / <b>more and more</b> = čoraz</li>
+<li><b>the -er …, the -er …</b> = čím…, tým…</li>
+</ul></div>`,
+ qs:[
+  {t:"in", q:"My sister is as ___ as my mum. (tall)", a:["tall"], e:"Medzi as … as je vždy základný tvar: as tall as."},
+  {t:"mc", q:"This film isn't ___ good as the book.", o:["as","than","more","like"], a:0, e:"not as + prídavné meno + as = nie taký … ako."},
+  {t:"mc", q:"Her phone is the same ___ mine.", o:["as","like","than","to"], a:0, e:"Vždy „the same as“."},
+  {t:"mc", q:"Your bag is very similar ___ mine.", o:["to","as","with","than"], a:0, e:"Vždy „similar to“."},
+  {t:"mc", q:"Life in a city is very different ___ life in a village.", o:["from","as","of","like"], a:0, e:"„different from“ = iný ako."},
+  {t:"in", q:"It's getting ___ . (cold – čoraz chladnejšie)", a:["colder and colder"], e:"Čoraz + krátke prídavné meno: colder and colder."},
+  {t:"in", q:"The ___ you practise, the better you get. (much)", a:["more"], e:"Čím viac…, tým lepšie: The more …, the better …"},
+  {t:"mc", q:"My room is ___ as big as yours.", o:["twice","two","double","second"], a:0, e:"„twice as big as“ = dvakrát taký veľký."},
+  {t:"mc", q:"Which means the same as „Tom is shorter than Mark“?", o:["Tom isn't as tall as Mark.","Tom is as tall as Mark.","Mark isn't as tall as Tom.","Tom is taller than Mark."], a:0, e:"Ak je Tom nižší, nie je taký vysoký ako Mark: Tom isn't as tall as Mark."},
+  {t:"in", q:"The sooner, the ___ . (good)", a:["better"], e:"good → better. The sooner, the better = čím skôr, tým lepšie."},
+  {t:"mc", q:"Flats in Bratislava are getting ___ .", o:["more and more expensive","expensiver and expensiver","more expensive and more expensive","most and most expensive"], a:0, e:"Pri dlhých prídavných menách: more and more + prídavné meno."}
+ ]
+},
+{
+ id:"eding", title:"-ed vs -ing adjectives", sk:"bored alebo boring?",
+ lesson:`
+<p class="lead">Toto je jedna z najčastejších chýb. Pravidlo je jednoduché:</p>
+<div class="tblwrap"><table>
+<tr><th>Koncovka</th><th>Čo opisuje</th><th>Príklad</th></tr>
+<tr><td><mark>-ed</mark></td><td><b>Ako sa niekto cíti</b> (človek, zviera)</td><td>I'm <b>bored</b>. = Nudím sa.</td></tr>
+<tr><td><mark>-ing</mark></td><td><b>Čo ten pocit spôsobuje</b> (vec, situácia, človek)</td><td>The film is <b>boring</b>. = Film je nudný.</td></tr>
+</table></div>
+<div class="ex"><div>I was <mark>tired</mark> after the <mark>tiring</mark> journey.</div><div class="t">Bol som unavený po únavnej ceste.</div></div>
+<h3>Najdôležitejšie dvojice</h3>
+<div class="tblwrap"><table>
+<tr><th>-ed (cítim)</th><th>-ing (spôsobuje)</th><th>Preklad</th></tr>
+<tr><td>bored</td><td>boring</td><td>nudiť sa / nudný</td></tr>
+<tr><td>interested</td><td>interesting</td><td>mať záujem / zaujímavý</td></tr>
+<tr><td>tired</td><td>tiring</td><td>unavený / únavný</td></tr>
+<tr><td>excited</td><td>exciting</td><td>nadšený / vzrušujúci</td></tr>
+<tr><td>surprised</td><td>surprising</td><td>prekvapený / prekvapivý</td></tr>
+<tr><td>embarrassed</td><td>embarrassing</td><td>v rozpakoch / trápny</td></tr>
+<tr><td>confused</td><td>confusing</td><td>zmätený / mätúci</td></tr>
+<tr><td>disappointed</td><td>disappointing</td><td>sklamaný / sklamávajúci</td></tr>
+<tr><td>frightened</td><td>frightening</td><td>vystrašený / strašidelný</td></tr>
+<tr><td>relaxed</td><td>relaxing</td><td>uvoľnený / relaxačný</td></tr>
+<tr><td>annoyed</td><td>annoying</td><td>naštvaný / otravný</td></tr>
+<tr><td>amazed</td><td>amazing</td><td>ohromený / úžasný</td></tr>
+</table></div>
+<div class="tip"><b>Pozor</b><ul>
+<li><b>I'm boring.</b> = Som nudný človek. 😬 Chceš povedať <b>I'm bored.</b></li>
+<li><b>He is interesting.</b> = On je zaujímavý. <b>He is interested.</b> = On má záujem.</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák</h3><ul>
+<li><b>-ed = ja cítim</b> (feel)</li>
+<li><b>-ing = vec spôsobuje</b> (is)</li>
+<li>Test: dá sa pred to dať „I feel …“? → <b>-ed</b></li>
+</ul></div>`,
+ qs:[
+  {t:"mc", q:"The lesson was so ___ that I fell asleep.", o:["boring","bored"], a:0, e:"Hodina spôsobuje nudu → -ing: boring."},
+  {t:"mc", q:"I'm really ___ in history.", o:["interested","interesting"], a:0, e:"Opisujeme, ako sa cítim → -ed. (Spojenie: interested in.)"},
+  {t:"in", q:"After the long walk, we were very ___ . (tire)", a:["tired"], e:"My sa cítime unavení → -ed: tired."},
+  {t:"mc", q:"The news was really ___ .", o:["shocking","shocked"], a:0, e:"Správy spôsobujú šok → -ing."},
+  {t:"in", q:"I was ___ when I saw my test results – I got an A! (surprise)", a:["surprised"], e:"Ja som sa cítil prekvapený → -ed: surprised."},
+  {t:"mc", q:"Falling over in front of the whole class was so ___ .", o:["embarrassing","embarrassed"], a:0, e:"Situácia spôsobuje trápnosť → -ing."},
+  {t:"mc", q:"Ktorá veta znamená „Nudím sa“?", o:["I'm bored.","I'm boring."], a:0, e:"I'm boring = som nudný človek. Nudím sa = I'm bored."},
+  {t:"in", q:"These instructions are very ___ . I don't understand them. (confuse)", a:["confusing"], e:"Návod spôsobuje zmätok → -ing: confusing."},
+  {t:"mc", q:"The kids were ___ about the school trip.", o:["excited","exciting"], a:0, e:"Deti sa cítia nadšené → -ed."},
+  {t:"in", q:"A hot bath is very ___ . (relax)", a:["relaxing"], e:"Kúpeľ spôsobuje uvoľnenie → -ing: relaxing."},
+  {t:"mc", q:"We were ___ with the hotel – it was dirty.", o:["disappointed","disappointing"], a:0, e:"My sme sa cítili sklamaní → -ed."},
+  {t:"mc", q:"Horror films are ___ .", o:["frightening","frightened"], a:0, e:"Filmy spôsobujú strach → -ing."}
+ ]
+},
+{
+ id:"order", title:"Order of adjectives", sk:"Poradie prídavných mien",
+ lesson:`
+<p class="lead">Keď je pred podstatným menom <b>viac prídavných mien</b>, majú v angličtine pevné poradie. Najprv <b>názor</b>, potom <b>fakty</b>.</p>
+<div class="ex"><div>a <mark>beautiful old</mark> house &nbsp;✔</div><div class="t"><s>an old beautiful house</s> ✘</div></div>
+<h3>Pomôcka: OSASCOMP</h3>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Kategória</th><th>Príklady</th></tr>
+<tr><td>1</td><td><b>O</b>pinion – názor</td><td>lovely, nice, ugly, delicious, comfortable</td></tr>
+<tr><td>2</td><td><b>S</b>ize – veľkosť</td><td>big, small, tall, little, long</td></tr>
+<tr><td>3</td><td><b>A</b>ge – vek</td><td>old, new, young, modern</td></tr>
+<tr><td>4</td><td><b>S</b>hape – tvar</td><td>round, square, flat</td></tr>
+<tr><td>5</td><td><b>C</b>olour – farba</td><td>red, black, blue, green</td></tr>
+<tr><td>6</td><td><b>O</b>rigin – pôvod</td><td>Slovak, Italian, German, French</td></tr>
+<tr><td>7</td><td><b>M</b>aterial – materiál</td><td>wooden, leather, cotton, plastic</td></tr>
+<tr><td>8</td><td><b>P</b>urpose – účel</td><td>running (shoes), sleeping (bag), dining (table)</td></tr>
+</table></div>
+<div class="ex"><div>a <mark>lovely</mark> <mark>small</mark> <mark>old</mark> <mark>round</mark> <mark>brown</mark> <mark>Italian</mark> <mark>wooden</mark> <mark>dining</mark> table</div><div class="t">V reálnej reči používame zvyčajne len 2–3 prídavné mená naraz.</div></div>
+<p>Zapamätaj si vetu: <b>„Opinion, Size, Age, Shape, Colour, Origin, Material, Purpose“</b> – alebo jednoducho: <b>názor → veľkosť → vek → farba → odkiaľ → z čoho → na čo</b>.</p>
+<div class="tip"><b>Pozor</b><ul>
+<li>Účel (purpose) je vždy <b>úplne posledný</b>, tesne pred podstatným menom: running shoes, sleeping bag.</li>
+<li>Člen sa riadi prvým slovom: <b>an</b> old car, ale <b>a</b> big old car.</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák</h3>
+<div class="chips"><span class="chip">1 Opinion</span><span class="chip">2 Size</span><span class="chip">3 Age</span><span class="chip">4 Shape</span><span class="chip">5 Colour</span><span class="chip">6 Origin</span><span class="chip">7 Material</span><span class="chip">8 Purpose</span></div></div>`,
+ qs:[
+  {t:"ord", q:"a ___ house", a:["beautiful","old"], e:"Názor (beautiful) ide pred vekom (old)."},
+  {t:"ord", q:"a ___ dog", a:["big","black"], e:"Veľkosť (big) ide pred farbou (black)."},
+  {t:"ord", q:"a ___ bag", a:["lovely","leather"], e:"Názor (lovely) je prvý, materiál (leather) je na konci."},
+  {t:"ord", q:"___ shoes", a:["new","white","running"], e:"Vek → farba → účel. Účel (running) je vždy posledný."},
+  {t:"ord", q:"my ___ car", a:["expensive","red","German"], e:"Názor → farba → pôvod."},
+  {t:"ord", q:"a ___ table", a:["small","round","wooden"], e:"Veľkosť → tvar → materiál."},
+  {t:"mc", q:"Which is correct?", o:["a blue cotton shirt","a cotton blue shirt"], a:0, e:"Farba (blue) ide pred materiálom (cotton)."},
+  {t:"mc", q:"Which is correct?", o:["a tall young man","a young tall man"], a:0, e:"Veľkosť (tall) ide pred vekom (young)."},
+  {t:"ord", q:"some ___ cakes", a:["delicious","little","French"], e:"Názor → veľkosť → pôvod."},
+  {t:"mc", q:"Ktorá kategória ide ako PRVÁ?", o:["Opinion (názor)","Colour (farba)","Size (veľkosť)","Material (materiál)"], a:0, e:"Vždy začíname názorom, potom nasledujú fakty."},
+  {t:"ord", q:"a ___ sleeping bag", a:["comfortable","green"], e:"Názor → farba. „sleeping“ (účel) je už pri podstatnom mene."},
+  {t:"ord", q:"two ___ girls", a:["pretty","young","Slovak"], e:"Názor → vek → pôvod."}
+ ]
+},
+{
+ id:"tooenough", title:"too, enough, so, such", sk:"Príliš, dosť, taký",
+ lesson:`
+<h3 style="margin-top:0">too = príliš (je to problém)</h3>
+<div class="ex"><div>This coffee is <mark>too hot</mark>. I can't drink it.</div><div class="t">too + prídavné meno</div><div>He's <mark>too young to drive</mark>.</div><div class="t">too + prídavné meno + to + sloveso</div></div>
+<h3>enough = dosť, dostatočne</h3>
+<div class="ex"><div>He's <mark>old enough</mark> to drive.</div><div class="t">prídavné meno + enough (enough ide ZA prídavné meno!)</div><div>We don't have <mark>enough money</mark>.</div><div class="t">enough + podstatné meno (enough ide PRED podstatné meno)</div><div>The room isn't <mark>big enough</mark>.</div><div class="t">nie je dosť veľká</div></div>
+<h3>so vs. such = taký, tak</h3>
+<div class="tblwrap"><table>
+<tr><th>Tvar</th><th>Príklad</th></tr>
+<tr><td><b>so</b> + prídavné meno</td><td>It was <b>so</b> cold.</td></tr>
+<tr><td><b>such a/an</b> + príd. meno + podst. meno (jednotné č.)</td><td>It was <b>such a</b> cold day.</td></tr>
+<tr><td><b>such</b> + príd. meno + podst. meno (množné č.)</td><td>They are <b>such</b> nice people.</td></tr>
+<tr><td><b>so … that</b> / <b>such … that</b></td><td>It was <b>so</b> boring <b>that</b> I left.</td></tr>
+</table></div>
+<div class="tip"><b>Pozor</b><ul>
+<li><b>very</b> = veľmi (OK), <b>too</b> = príliš (problém): It's very hot. vs. It's too hot – I can't sleep.</li>
+<li><s>enough old</s> → <b>old enough</b>; <s>money enough</s> → <b>enough money</b>.</li>
+<li><s>so a nice day</s> → <b>such a nice day</b>.</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák</h3><ul>
+<li><b>too</b> + adj (+ to …)</li>
+<li><b>adj + enough</b> · <b>enough + noun</b></li>
+<li><b>so</b> + adj · <b>such (a)</b> + adj + noun</li>
+</ul></div>`,
+ qs:[
+  {t:"mc", q:"This coffee is ___ hot to drink.", o:["too","enough","such","so a"], a:0, e:"too + prídavné meno + to … = príliš na to, aby…"},
+  {t:"mc", q:"He isn't ___ to drive.", o:["old enough","enough old","too old","such old"], a:0, e:"Prídavné meno + enough: old enough."},
+  {t:"mc", q:"It was ___ lovely day!", o:["such a","so","such","so a"], a:0, e:"such a + prídavné meno + podstatné meno v jednotnom čísle."},
+  {t:"mc", q:"The film was ___ boring that I left.", o:["so","such","too","such a"], a:0, e:"so + prídavné meno (bez podstatného mena) + that."},
+  {t:"mc", q:"We don't have ___ to buy a car.", o:["enough money","money enough","too money","so money"], a:0, e:"enough + podstatné meno: enough money."},
+  {t:"in", q:"They are ___ nice people. (so / such)", a:["such"], e:"Prídavné meno + podstatné meno v množnom čísle → such (bez a)."},
+  {t:"mc", q:"The box is too heavy ___ .", o:["for me to carry","to carry it for me","that I carry","enough to carry"], a:0, e:"too + adj + for + osoba + to + sloveso."},
+  {t:"mc", q:"I can't wear these jeans. They're ___ small.", o:["too","very","enough","such"], a:0, e:"Je to problém (nemôžem ich nosiť) → too."},
+  {t:"in", q:"Is the water warm ___ for swimming? (too / enough)", a:["enough"], e:"warm enough = dosť teplá. Enough ide ZA prídavné meno."},
+  {t:"mc", q:"She speaks ___ quickly that I can't understand her.", o:["so","such","too","enough"], a:0, e:"so + príslovka/prídavné meno + that."},
+  {t:"mc", q:"It was ___ an interesting book.", o:["such","so","too","very"], a:0, e:"such + a/an + prídavné meno + podstatné meno."}
+ ]
+},
+{
+ id:"prep", title:"Adjectives + prepositions", sk:"Prídavné mená s predložkami",
+ lesson:`
+<p class="lead">Mnohé prídavné mená sa spájajú s <b>pevnou predložkou</b>. Často je iná ako v slovenčine, preto sa ich uč <b>ako celok</b>: <mark>good at</mark>, nie len „good“.</p>
+<div class="tblwrap"><table>
+<tr><th>Predložka</th><th>Spojenia</th><th>Príklad</th></tr>
+<tr><td><b>at</b></td><td>good at, bad at</td><td>I'm good <b>at</b> maths.</td></tr>
+<tr><td><b>in</b></td><td>interested in</td><td>Are you interested <b>in</b> art?</td></tr>
+<tr><td><b>of</b></td><td>afraid of, scared of, proud of, tired of, fond of, full of, jealous of</td><td>She's afraid <b>of</b> spiders.</td></tr>
+<tr><td><b>on</b></td><td>keen on</td><td>He's keen <b>on</b> football.</td></tr>
+<tr><td><b>for</b></td><td>famous for, responsible for, late for</td><td>Don't be late <b>for</b> school.</td></tr>
+<tr><td><b>to</b></td><td>similar to, kind to, married to</td><td>Be kind <b>to</b> animals.</td></tr>
+<tr><td><b>from</b></td><td>different from</td><td>It's different <b>from</b> mine.</td></tr>
+<tr><td><b>about</b></td><td>worried about, excited about, sorry about, angry about (vec)</td><td>I'm worried <b>about</b> the exam.</td></tr>
+<tr><td><b>with</b></td><td>angry with (človek), bored with, pleased with</td><td>Mum is angry <b>with</b> me.</td></tr>
+</table></div>
+<h3>Po predložke → sloveso s -ing</h3>
+<div class="ex"><div>She's good at <mark>swimming</mark>.</div><div>I'm tired of <mark>waiting</mark>.</div><div>He's interested in <mark>learning</mark> Spanish.</div></div>
+<div class="tip"><b>Pozor na slovenčinu</b><ul>
+<li>dobrý <i>v</i> matike → good <b>at</b> maths (nie <s>in</s>)</li>
+<li>bojí sa pavúkov → afraid <b>of</b> spiders</li>
+<li>hrdý <i>na</i> teba → proud <b>of</b> you (nie <s>on</s>)</li>
+<li>ženatý <i>s</i> → married <b>to</b> (nie <s>with</s>)</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák – najčastejšie</h3>
+<div class="chips"><span class="chip">good at</span><span class="chip">interested in</span><span class="chip">afraid of</span><span class="chip">proud of</span><span class="chip">tired of</span><span class="chip">keen on</span><span class="chip">famous for</span><span class="chip">responsible for</span><span class="chip">similar to</span><span class="chip">different from</span><span class="chip">worried about</span><span class="chip">angry with</span></div></div>`,
+ qs:[
+  {t:"in", q:"I'm not very good ___ maths.", a:["at"], e:"good at = dobrý v niečom."},
+  {t:"in", q:"Are you interested ___ art?", a:["in"], e:"interested in = zaujímať sa o."},
+  {t:"in", q:"My little sister is afraid ___ spiders.", a:["of"], e:"afraid of = báť sa niečoho."},
+  {t:"in", q:"Bratislava is famous ___ its castle.", a:["for"], e:"famous for = známy niečím."},
+  {t:"in", q:"I'm really proud ___ you!", a:["of"], e:"proud of = hrdý na (nie „on“!)."},
+  {t:"in", q:"I'm tired ___ waiting.", a:["of"], e:"tired of = mať niečoho dosť."},
+  {t:"in", q:"He's very keen ___ football.", a:["on"], e:"keen on = nadšený pre, rád má."},
+  {t:"in", q:"Who is responsible ___ this mess?", a:["for"], e:"responsible for = zodpovedný za."},
+  {t:"in", q:"Your phone is similar ___ mine.", a:["to"], e:"similar to = podobný."},
+  {t:"in", q:"She's worried ___ her exams.", a:["about"], e:"worried about = robiť si starosti o."},
+  {t:"in", q:"My mum was angry ___ me.", a:["with"], e:"angry with + človek, angry about + vec."},
+  {t:"mc", q:"She's good at ___ .", o:["swimming","swim","to swim","swims"], a:0, e:"Po predložke nasleduje sloveso s -ing."},
+  {t:"in", q:"Don't be late ___ school!", a:["for"], e:"late for = meškať na."}
+ ]
+},
+{
+ id:"adverb", title:"Adjective or adverb?", sk:"Prídavné meno alebo príslovka",
+ lesson:`
+<p class="lead"><b>Prídavné meno</b> opisuje <b>podstatné meno</b> (aký?). <b>Príslovka</b> opisuje <b>sloveso</b> (ako?).</p>
+<div class="ex"><div>She is a <mark>careful</mark> driver. <span class="t">– aká vodička? starostlivá</span></div><div>She drives <mark>carefully</mark>. <span class="t">– ako šoféruje? starostlivo</span></div></div>
+<h3>Ako vytvoriť príslovku</h3>
+<div class="tblwrap"><table>
+<tr><th>Pravidlo</th><th>Príklad</th></tr>
+<tr><td>väčšinou <b>+ly</b></td><td>quick → quickly, careful → carefully</td></tr>
+<tr><td><b>-y → -ily</b></td><td>easy → easily, happy → happily</td></tr>
+<tr><td><b>-le → -ly</b></td><td>gentle → gently, terrible → terribly</td></tr>
+<tr><td><b>-ic → -ically</b></td><td>fantastic → fantastically</td></tr>
+</table></div>
+<h3>Nepravidelné</h3>
+<div class="tblwrap"><table>
+<tr><th>Prídavné meno</th><th>Príslovka</th><th>Pozor</th></tr>
+<tr><td>good</td><td><b>well</b></td><td>She speaks English <b>well</b>.</td></tr>
+<tr><td>fast</td><td><b>fast</b></td><td>nie <s>fastly</s></td></tr>
+<tr><td>hard</td><td><b>hard</b></td><td><b>hardly</b> = sotva!</td></tr>
+<tr><td>late</td><td><b>late</b></td><td><b>lately</b> = v poslednom čase!</td></tr>
+<tr><td>early</td><td><b>early</b></td><td>I get up early.</td></tr>
+</table></div>
+<h3>Po slovesách zmyslov a „be“ → prídavné meno</h3>
+<p>Po <b>be, look, seem, feel, sound, taste, smell, get, become</b> používame <b>prídavné meno</b>, lebo opisujeme podmet, nie činnosť.</p>
+<div class="ex"><div>You <mark>look tired</mark>. <span class="t">(nie tiredly)</span></div><div>This soup <mark>tastes good</mark>. <span class="t">(nie well)</span></div><div>That <mark>sounds great</mark>!</div></div>
+<div class="tip"><b>Pozor</b><ul>
+<li><b>friendly, lovely, lonely, silly, lively</b> sú <b>prídavné mená</b>, aj keď končia na -ly. Príslovka: <b>in a friendly way</b>.</li>
+<li>Príslovka môže opisovať aj prídavné meno: <b>surprisingly</b> easy, <b>extremely</b> cold.</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák</h3><ul>
+<li><b>aký?</b> → adjective · <b>ako?</b> → adverb (-ly)</li>
+<li>good → <b>well</b>, fast/hard/late → bez zmeny</li>
+<li>look / feel / taste / sound + <b>adjective</b></li>
+</ul></div>`,
+ qs:[
+  {t:"mc", q:"He drives very ___ .", o:["carefully","careful"], a:0, e:"Ako šoféruje? Opisujeme sloveso → príslovka: carefully."},
+  {t:"mc", q:"She is a ___ driver.", o:["careful","carefully"], a:0, e:"Aká vodička? Opisujeme podstatné meno → prídavné meno."},
+  {t:"mc", q:"You speak English very ___ .", o:["well","good"], a:0, e:"Príslovka od good je well."},
+  {t:"mc", q:"This soup tastes ___ .", o:["good","well"], a:0, e:"Po „taste“ ide prídavné meno: tastes good."},
+  {t:"in", q:"He ran ___ to catch the bus. (quick)", a:["quickly"], e:"Ako bežal? → príslovka: quick + ly."},
+  {t:"mc", q:"She works very ___ .", o:["hard","hardly"], a:0, e:"Príslovka od hard je hard. Hardly znamená „sotva“."},
+  {t:"mc", q:"I can ___ hear you. Speak louder, please.", o:["hardly","hard"], a:0, e:"hardly = sotva (takmer nie)."},
+  {t:"in", q:"Please talk ___ . The baby is sleeping. (quiet)", a:["quietly"], e:"Ako hovoriť? → príslovka: quietly."},
+  {t:"mc", q:"He smiled at me in a ___ way.", o:["friendly","friendlily"], a:0, e:"friendly je prídavné meno, príslovka neexistuje → in a friendly way."},
+  {t:"in", q:"She sings ___ . (beautiful)", a:["beautifully"], e:"Ako spieva? → beautiful + ly."},
+  {t:"mc", q:"You look ___ today. Is everything OK?", o:["sad","sadly"], a:0, e:"Po „look“ ide prídavné meno."},
+  {t:"in", q:"The test was ___ easy. (surprising)", a:["surprisingly"], e:"Príslovka opisuje prídavné meno easy: surprisingly easy."},
+  {t:"mc", q:"Have you seen Tom ___ ? (= v poslednom čase)", o:["lately","late"], a:0, e:"lately = v poslednom čase, late = neskoro."}
+ ]
+},
+{
+ id:"wordform", title:"Word formation", sk:"Tvorenie prídavných mien a záporov",
+ lesson:`
+<p class="lead">Z podstatných mien a slovies vieš vytvoriť prídavné mená pomocou <b>prípon</b>. Opačný význam vytvoríš <b>predponou</b>. Toto sa často objavuje v testoch a na maturite.</p>
+<h3>Prípony (suffixes)</h3>
+<div class="tblwrap"><table>
+<tr><th>Prípona</th><th>Význam</th><th>Príklady</th></tr>
+<tr><td><b>-ful</b></td><td>plný niečoho</td><td>help → helpful, beauty → beautiful, care → careful</td></tr>
+<tr><td><b>-less</b></td><td>bez niečoho</td><td>care → careless, home → homeless, use → useless</td></tr>
+<tr><td><b>-ous</b></td><td></td><td>danger → dangerous, fame → famous</td></tr>
+<tr><td><b>-able / -ible</b></td><td>dá sa</td><td>comfort → comfortable, sense → sensible</td></tr>
+<tr><td><b>-al</b></td><td></td><td>nature → natural, music → musical</td></tr>
+<tr><td><b>-ive</b></td><td></td><td>create → creative, attract → attractive</td></tr>
+<tr><td><b>-y</b></td><td></td><td>sun → sunny, rain → rainy, health → healthy</td></tr>
+<tr><td><b>-ic</b></td><td></td><td>science → scientific, energy → energetic</td></tr>
+</table></div>
+<div class="ex"><div>care<mark>ful</mark> (opatrný) ↔ care<mark>less</mark> (nedbalý)</div></div>
+<h3>Záporné predpony (prefixes)</h3>
+<div class="tblwrap"><table>
+<tr><th>Predpona</th><th>Kedy</th><th>Príklady</th></tr>
+<tr><td><b>un-</b></td><td>najčastejšia</td><td>unhappy, unfriendly, unusual, unkind</td></tr>
+<tr><td><b>in-</b></td><td></td><td>incorrect, independent, informal</td></tr>
+<tr><td><b>im-</b></td><td>pred <b>p, m</b></td><td>impossible, impolite, immature</td></tr>
+<tr><td><b>il-</b></td><td>pred <b>l</b></td><td>illegal, illogical</td></tr>
+<tr><td><b>ir-</b></td><td>pred <b>r</b></td><td>irregular, irresponsible</td></tr>
+<tr><td><b>dis-</b></td><td></td><td>dishonest, dissatisfied</td></tr>
+</table></div>
+<div class="tip"><b>Pozor</b><ul>
+<li>Pri <b>-ful</b> je len jedno <b>l</b>: <s>beautifull</s> → <b>beautiful</b>.</li>
+<li><b>-y → -i</b> pred príponou: beauty → beaut<b>i</b>ful.</li>
+<li><b>fame → famous</b> (e zmizne).</li>
+</ul></div>
+<div class="cheat"><h3>Ťahák</h3><ul>
+<li>-ful (s) ↔ -less (bez)</li>
+<li>im + p/m · il + l · ir + r</li>
+</ul></div>`,
+ qs:[
+  {t:"in", q:"Thanks, you've been very ___ . (help)", a:["helpful"], e:"help + ful = helpful (nápomocný). Len jedno l!"},
+  {t:"in", q:"Don't play with fire! It's ___ . (danger)", a:["dangerous"], e:"danger + ous = dangerous."},
+  {t:"in", q:"It's ___ to drive without a licence. (legal)", a:["illegal"], e:"Pred „l“ používame il-: illegal."},
+  {t:"in", q:"This sofa is really ___ . (comfort)", a:["comfortable"], e:"comfort + able = comfortable."},
+  {t:"in", q:"That's ___ ! Nobody can run 100 m in 5 seconds. (possible)", a:["impossible"], e:"Pred „p“ používame im-: impossible."},
+  {t:"in", q:"He lost his keys again. He's so ___ . (care)", a:["careless"], e:"careless = nedbalý (bez starostlivosti). Careful = opatrný."},
+  {t:"in", q:"It's a ___ day – let's go to the beach. (sun)", a:["sunny"], e:"sun + y, zdvojíme n: sunny."},
+  {t:"in", q:"„Go – went – gone“ is an ___ verb. (regular)", a:["irregular"], e:"Pred „r“ používame ir-: irregular."},
+  {t:"in", q:"She never tells the truth. She's ___ . (honest)", a:["dishonest"], e:"Zápor od honest je dishonest."},
+  {t:"in", q:"My grandma is very ___ – she goes running every day. (health)", a:["healthy"], e:"health + y = healthy."},
+  {t:"in", q:"Picasso is a ___ painter. (fame)", a:["famous"], e:"fame → famous (e zmizne)."},
+  {t:"in", q:"My answer was ___ . I got 0 points. (correct)", a:["incorrect"], e:"Zápor od correct je incorrect."},
+  {t:"in", q:"Don't be ___ – say „please“! (polite)", a:["impolite"], e:"Pred „p“ používame im-: impolite."},
+  {t:"in", q:"She's very ___ – she paints and writes stories. (create)", a:["creative"], e:"create → creative (e zmizne, pridáme -ive)."}
+ ]
+}
+];
+
+/* =========================================================
+   STAV A ULOŽENIE
+   ========================================================= */
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+let best = store.get("adj_best",{});
+let mistakes = store.get("adj_mist",[]);
+const saveAll = () => { store.set("adj_best",best); store.set("adj_mist",mistakes); };
+const byId = id => TOPICS.find(t=>t.id===id);
+const totalQs = TOPICS.reduce((s,t)=>s+t.qs.length,0);
+
+const app = document.getElementById("app");
+const sheet = document.getElementById("sheet");
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a; };
+const norm = s => String(s).toLowerCase().replace(/[’‘]/g,"'").replace(/[.!?]+$/,"").replace(/\s+/g," ").trim();
+
+/* =========================================================
+   ROUTER
+   ========================================================= */
+let S = null; // stav testu
+function go(h){ location.hash = h; }
+window.addEventListener("hashchange", render);
+function render(){
+  closeSheet();
+  const h = location.hash.replace(/^#\/?/,"").split("/");
+  window.scrollTo(0,0);
+  if(h[0]==="learn" && byId(h[1])) return renderLesson(byId(h[1]));
+  if(h[0]==="quiz"){
+    if(!S || S.key!==h.slice(1).join("/") || S.done) startQuiz(h[1], h[2]);
+    if(S) return renderQ();
+  }
+  if(h[0]==="results" && S && S.done) return renderResults();
+  renderHome();
+}
+
+/* =========================================================
+   DOMOV
+   ========================================================= */
+function renderHome(){
+  const done = TOPICS.filter(t=>best[t.id]!=null).length;
+  app.innerHTML = `
+  <div class="top"><a class="brand" href="#/"><span>Adj</span>ectives</a><span class="pill">Angličtina B1</span></div>
+  <div class="hero">
+    <h1>Nauč sa <mark>prídavné mená</mark> raz a poriadne.</h1>
+    <p>8 tém, krátka teória v slovenčine a ${totalQs} cvičení s vysvetlením každej odpovede.</p>
+    <div class="steps">
+      <div class="step"><b>1</b>Prečítaj teóriu</div>
+      <div class="step"><b>2</b>Precvič tému</div>
+      <div class="step"><b>3</b>Spusti veľký test</div>
+      <div class="step"><b>4</b>Opakuj chyby</div>
+    </div>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="#/quiz/all">Veľký test<small>20 otázok zo všetkých tém</small></a>
+    <button class="btn" ${mistakes.length?"":"disabled"} onclick="go('#/quiz/mistakes')">Opakovať chyby<small>${mistakes.length? mistakes.length+" na zopakovanie":"zatiaľ žiadne"}</small></button>
+  </div>
+  <h2 class="sec-title">Témy · hotovo ${done}/${TOPICS.length}</h2>
+  <div class="topics">
+  ${TOPICS.map((t,i)=>{const b=best[t.id]; return `
+    <div class="topic">
+      <div class="topic-head"><div class="num">${i+1}</div><div><h3>${esc(t.title)}</h3><p>${esc(t.sk)}</p></div></div>
+      <div class="bar"><i style="width:${b||0}%"></i></div>
+      <div class="meta"><span>${t.qs.length} cvičení</span><span>${b!=null?"Najlepšie: "+b+" %":"Ešte neskúšané"}</span></div>
+      <div class="row2"><a class="btn" href="#/learn/${t.id}">Teória</a><a class="btn primary" href="#/quiz/${t.id}">Precvičiť</a></div>
+    </div>`}).join("")}
+  </div>
+  <p class="foot">Pokrok sa ukladá v tomto prehliadači.</p>`;
+}
+
+/* =========================================================
+   TEÓRIA
+   ========================================================= */
+function lessonHTML(t){
+  const i = TOPICS.indexOf(t)+1;
+  return `<div class="lesson"><span class="qtag">Téma ${i}</span><h1>${esc(t.title)}</h1><p class="sk">${esc(t.sk)}</p>${t.lesson}</div>`;
+}
+function renderLesson(t){
+  const i = TOPICS.indexOf(t);
+  const next = TOPICS[i+1];
+  app.innerHTML = `
+  <a class="back" href="#/">← Všetky témy</a>
+  ${lessonHTML(t)}
+  <div class="sticky"><a class="btn primary full" href="#/quiz/${t.id}">Precvič si túto tému (${t.qs.length}) →</a></div>
+  ${next?`<a class="btn full" style="margin-top:4px" href="#/learn/${next.id}">Ďalšia téma: ${esc(next.title)}</a>`:""}`;
+}
+function openSheet(tid){
+  const t = byId(tid);
+  sheet.innerHTML = `<div class="sheet" onclick="if(event.target===this)closeSheet()"><div class="in"><div class="grab"><button class="x" onclick="closeSheet()" aria-label="Zavrieť">×</button></div>${lessonHTML(t)}</div></div>`;
+  document.body.style.overflow="hidden";
+}
+function closeSheet(){ sheet.innerHTML=""; document.body.style.overflow=""; }
+
+/* =========================================================
+   TEST
+   ========================================================= */
+function mkItem(tid, i){
+  const q = byId(tid).qs[i];
+  const it = {tid, i, q, key: tid+":"+i};
+  if(q.t==="mc") it.order = shuffle(q.o.map((_,k)=>k));
+  if(q.t==="ord"){ let p; do{ p = shuffle(q.a); } while(q.a.length>1 && p.join()===q.a.join()); it.pool = p; it.chosen=[]; }
+  return it;
+}
+function startQuiz(mode, sub){
+  let items = [];
+  if(mode==="all"){
+    TOPICS.forEach(t=> shuffle(t.qs.map((_,i)=>i)).slice(0,2).forEach(i=>items.push(mkItem(t.id,i))));
+    const used = new Set(items.map(x=>x.key));
+    const rest = shuffle(TOPICS.flatMap(t=>t.qs.map((_,i)=>t.id+":"+i)).filter(k=>!used.has(k)));
+    rest.slice(0,20-items.length).forEach(k=>{const [a,b]=k.split(":");items.push(mkItem(a,+b))});
+    items = shuffle(items);
+  } else if(mode==="mistakes"){
+    items = shuffle(mistakes.filter(k=>{const [a,b]=k.split(":");return byId(a)&&byId(a).qs[+b]}).map(k=>{const [a,b]=k.split(":");return mkItem(a,+b)}));
+    if(!items.length){ S=null; go("#/"); return; }
+  } else if(byId(mode)){
+    items = shuffle(byId(mode).qs.map((_,i)=>mkItem(mode,i)));
+  } else { S=null; go("#/"); return; }
+  S = {key:[mode,sub].filter(Boolean).join("/"), mode, items, idx:0, score:0, answered:false, log:[], done:false};
+}
+function correctText(q){
+  if(q.t==="mc") return q.o[q.a];
+  if(q.t==="in") return q.a[0];
+  return q.a.join(" ");
+}
+function fullSentence(q){
+  if(!q.q.includes("___")) return null;
+  return q.q.replace(/\s*\([^)]*\)\s*$/,"").replace("___", `<mark>${esc(correctText(q))}</mark>`).replace(/ \./g,".").replace(/ \?/g,"?").replace(/ !/g,"!");
+}
+const taskLabel = {mc:"Vyber správnu možnosť", in:"Doplň chýbajúce slovo", ord:"Ťukaj na slová v správnom poradí"};
+
+function renderQ(){
+  const it = S.items[S.idx], q = it.q, t = byId(it.tid);
+  const n = S.items.length;
+  let body = "";
+  if(q.t==="mc"){
+    body = `<div class="qtext">${esc(q.q).replace("___",'<span class="blank"></span>')}</div>
+    <div class="opts">${it.order.map((k,j)=>`<button class="opt" data-k="${k}" onclick="answerMC(${k})"><span class="k">${"ABCD"[j]}</span><span>${esc(q.o[k])}</span></button>`).join("")}</div>`;
+  } else if(q.t==="in"){
+    body = `<div class="qtext">${esc(q.q).replace("___",'<input id="inp" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Odpoveď">')}</div>
+    <div class="actions" id="act"><button class="btn primary full" onclick="answerIN()">Skontrolovať</button></div>`;
+  } else {
+    body = `<div class="qtext">${esc(q.q).replace("___",'<span class="drop" id="drop"></span>')}</div>
+    <div class="pool" id="pool"></div>
+    <div class="actions" id="act"><button class="btn primary full" id="chk" onclick="answerORD()" disabled>Skontrolovať</button></div>`;
+  }
+  app.innerHTML = `
+  <div class="qtop"><button class="x" onclick="quitQuiz()" aria-label="Ukončiť">×</button><div class="qbar"><i style="width:${(S.idx)/n*100}%"></i></div><div class="qcount">${S.idx+1}/${n}</div></div>
+  <div class="qcard">
+    <span class="qtag">${esc(t.title)}</span>
+    <div class="qtask">${taskLabel[q.t]}</div>
+    ${body}
+    <div id="fb"></div>
+  </div>`;
+  S.answered = false;
+  if(q.t==="in"){ const inp=document.getElementById("inp"); inp.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault(); S.answered?next():answerIN();}}); setTimeout(()=>inp.focus({preventScroll:true}),50); }
+  if(q.t==="ord") drawOrd();
+}
+function drawOrd(){
+  const it = S.items[S.idx];
+  const drop = document.getElementById("drop"), pool = document.getElementById("pool");
+  drop.innerHTML = it.chosen.map((w,j)=>`<button class="word" onclick="ordBack(${j})">${esc(w)}</button>`).join("");
+  pool.innerHTML = it.pool.map((w,j)=>`<button class="word" onclick="ordPick(${j})">${esc(w)}</button>`).join("");
+  const chk = document.getElementById("chk"); if(chk) chk.disabled = it.pool.length>0;
+}
+function ordPick(j){ if(S.answered) return; const it=S.items[S.idx]; it.chosen.push(it.pool.splice(j,1)[0]); drawOrd(); }
+function ordBack(j){ if(S.answered) return; const it=S.items[S.idx]; it.pool.push(it.chosen.splice(j,1)[0]); drawOrd(); }
+
+function answerMC(k){
+  if(S.answered) return;
+  const q = S.items[S.idx].q, ok = k===q.a;
+  document.querySelectorAll(".opt").forEach(b=>{const bk=+b.dataset.k; b.disabled=true; if(bk===q.a) b.classList.add("ok"); else if(bk===k) b.classList.add("bad");});
+  finish(ok, q.o[k]);
+}
+function answerIN(){
+  if(S.answered) return;
+  const inp = document.getElementById("inp"), v = inp.value;
+  if(!v.trim()){ inp.focus(); return; }
+  const q = S.items[S.idx].q, ok = q.a.some(a=>norm(a)===norm(v));
+  inp.classList.add(ok?"ok":"bad"); inp.readOnly = true;
+  finish(ok, v.trim());
+}
+function answerORD(){
+  if(S.answered) return;
+  const it = S.items[S.idx], q = it.q, ok = it.chosen.join(" ")===q.a.join(" ");
+  document.getElementById("drop").classList.add(ok?"ok":"bad");
+  finish(ok, it.chosen.join(" "));
+}
+function finish(ok, given){
+  S.answered = true;
+  const it = S.items[S.idx], q = it.q;
+  if(ok){ S.score++; mistakes = mistakes.filter(k=>k!==it.key); }
+  else if(!mistakes.includes(it.key)) mistakes.push(it.key);
+  saveAll();
+  S.log.push({it, ok, given});
+  const fs = fullSentence(q);
+  const last = S.idx===S.items.length-1;
+  document.getElementById("fb").innerHTML = `
+    <div class="fb ${ok?"ok":"bad"}">
+      <h4>${ok?pick(["Správne!","Výborne!","Presne tak!","Super!"]):"Nie celkom."}</h4>
+      ${!ok?`<p>Správne: <span class="ans">${esc(correctText(q))}</span></p>`:""}
+      ${fs?`<p>${fs}</p>`:""}
+      <p>${esc(q.e)}</p>
+      <button class="linkbtn" onclick="openSheet('${it.tid}')">Pozrieť teóriu k téme</button>
+    </div>
+    <div class="actions"><button class="btn primary full" id="nextBtn" onclick="next()">${last?"Zobraziť výsledok":"Ďalej →"}</button></div>`;
+  const act = document.getElementById("act"); if(act) act.remove();
+  document.getElementById("nextBtn").focus({preventScroll:true});
+  document.getElementById("fb").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+const pick = a => a[Math.floor(Math.random()*a.length)];
+function next(){
+  if(S.idx < S.items.length-1){ S.idx++; renderQ(); window.scrollTo(0,0); }
+  else { S.done = true;
+    if(byId(S.mode)){ const p = Math.round(S.score/S.items.length*100); best[S.mode] = Math.max(best[S.mode]||0, p); saveAll(); }
+    go("#/results");
+  }
+}
+function quitQuiz(){
+  if(S && S.log.length && !confirmLeave()) return;
+  S = null; go("#/");
+}
+function confirmLeave(){ return window.confirm("Ukončiť test? Doterajšie odpovede sa nezapočítajú do skóre."); }
+document.addEventListener("keydown",e=>{
+  if(!S || S.done || !location.hash.startsWith("#/quiz")) return;
+  if(e.key==="Enter" && S.answered && document.activeElement.id!=="inp"){ e.preventDefault(); next(); }
+  if(!S.answered && S.items[S.idx].q.t==="mc" && /^[1-4a-d]$/i.test(e.key)){
+    const j = /\d/.test(e.key)? +e.key-1 : "abcd".indexOf(e.key.toLowerCase());
+    const b = document.querySelectorAll(".opt")[j]; if(b) b.click();
+  }
+});
+
+/* =========================================================
+   VÝSLEDKY
+   ========================================================= */
+function renderResults(){
+  const n = S.items.length, p = Math.round(S.score/n*100);
+  const c = p>=85?"var(--ok)":p>=60?"var(--accent)":"var(--bad)";
+  const msg = p>=90?["Výborne!","Prídavné mená ovládaš. Skús veľký test ešte raz pre istotu."]
+            : p>=70?["Dobrá práca!","Ešte zopakuj chyby nižšie a budeš na 100 %."]
+            : p>=50?["Ide to.","Prečítaj si teóriu k témam, kde si chyboval, a skús to znova."]
+            : ["Nevadí, začni teóriou.","Prejdi si teóriu a potom precvič tému po téme."];
+  const wrong = S.log.filter(l=>!l.ok);
+  let breakdown = "";
+  if(S.mode!=="mistakes" && !byId(S.mode)){
+    const per = {};
+    S.log.forEach(l=>{ per[l.it.tid] = per[l.it.tid]||{ok:0,n:0}; per[l.it.tid].n++; if(l.ok) per[l.it.tid].ok++; });
+    breakdown = `<h2 class="sec-title">Podľa tém</h2><div class="list">${TOPICS.filter(t=>per[t.id]).map(t=>{const r=per[t.id];const full=r.ok===r.n;return `
+      <div class="li brk"><div><div class="q">${esc(t.title)}</div><div class="${full?"c":"y"}">${r.ok}/${r.n} správne</div></div>${full?"":`<a href="#/learn/${t.id}">Teória →</a>`}</div>`}).join("")}</div>`;
+  }
+  const retry = S.mode;
+  app.innerHTML = `
+  <div class="top"><a class="brand" href="#/"><span>Adj</span>ectives</a><span class="pill">Výsledok</span></div>
+  <div class="score">
+    <div class="ring" style="--p:${p};--c:${c}"><div>${p}%</div></div>
+    <h2>${msg[0]}</h2>
+    <p>${S.score} z ${n} správne. ${msg[1]}</p>
+  </div>
+  <div class="stack" style="margin:18px 0 26px">
+    <button class="btn primary full" onclick="S=null;go('#/quiz/${retry}')">${retry==="mistakes"?"Opakovať chyby znova":"Skúsiť znova"}</button>
+    ${mistakes.length && retry!=="mistakes"?`<button class="btn full" onclick="S=null;go('#/quiz/mistakes')">Opakovať chyby (${mistakes.length})</button>`:""}
+    ${byId(retry)?`<a class="btn full" href="#/learn/${retry}">Zopakovať teóriu</a>`:""}
+    <a class="btn full" href="#/">Domov</a>
+  </div>
+  ${breakdown}
+  ${wrong.length?`<h2 class="sec-title">Tvoje chyby</h2><div class="list">${wrong.map(l=>{const q=l.it.q;const fs=fullSentence(q);return `
+    <div class="li"><div class="q">${fs||esc(q.q)}</div><div class="y">Ty: ${esc(l.given)||"—"}</div><div class="c">Správne: ${esc(correctText(q))}</div><div style="font-size:14px;color:var(--muted);margin-top:4px">${esc(q.e)}</div></div>`}).join("")}</div>`:""}`;
+}
+
+render();
+</script>
+</body>
+</html>
